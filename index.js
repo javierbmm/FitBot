@@ -1,3 +1,14 @@
+import {getBotsResponse} from "./js/bot.js";
+import {getNlpProcessedInput} from "./js/nlp";
+
+let importNlp = document.createElement('script');
+importNlp.src = './js/nlp.js';
+document.head.appendChild(importNlp);
+
+let importBot = document.createElement('script');
+importBot.src = './js/bot.js';
+document.head.appendChild(importBot);
+
 //Adding a listener on 'enter' pressed
 document.addEventListener("DOMContentLoaded", () => {
     const inputField = document.getElementById("input-msg")
@@ -10,8 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function botResponse(userInput){
-    //import { data } from 'data/data'; ??
-    return 'go to the gym, yo';
+    //Here we should call the function to get a response
+    return getBotsResponse(getNlpProcessedInput(userInput));
 }
 
 function addQuestionAndResponse(userInput, botResponse){
