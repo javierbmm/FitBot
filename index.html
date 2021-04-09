@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <title>FitBot</title>
     <link rel="stylesheet" href="css/chat.css">
+    <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
     <div id="chat-container">
         <div id="chat">
-            <span class="msg-user">Yo</span>
-
-            <span class="msg-bot">Sup bitch</span>
-
+            <div class="msg-user-div">
+                <span class="msg-user">Yo</span>
+            </div>
+            <div class="msg-bot-div">
+                <span class="msg-bot">Sup bitch</span>
+            </div>
         </div>
         <div id="user-container">
-            <form id="user-form">
+            <form id="user-form" onsubmit="return false;">
                 <input type="text" id="input-msg" placeholder="Type a message...">
                 <label content="Type a message..." for="input-msg"></label>
                 <button id="send">&#10140;</button>

@@ -86,10 +86,17 @@ body {
 
 .msg-bot {
     background: linear-gradient(25deg, #fdd6d9 60%, #ffeeee);
+}
+
+.msg-bot-div {
     align-self: flex-start;
 }
+
 .msg-user {
     background-color: #fbfffe;
+}
+
+.msg-user-div {
     align-self: flex-end;
 }
 
