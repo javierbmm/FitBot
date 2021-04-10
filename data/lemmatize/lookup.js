@@ -13,7 +13,7 @@ export const data = {
   "decrease": "decrement",
   "decreasing": "decrement",
   "minimize": "decrement",
-  "minimizing": "decrement"
+  "minimizing": "decrement",
   "main": "area",
   "low": "area" ,
   "side":"area",
@@ -26,14 +26,14 @@ export const data = {
   "no": "no" ,
   "nope":"no",
   "okay": "yes",
-  "kilos": "weight",
-  "kilograms": "weight",
-  "pounds": "weight",
+  "kilos": "kg",
+  "kilograms": "kg",
+  "pounds": "lb",
   "times": "days",
   "timing": "time",
   "days": "days",
-  "meters": "height",
-  "feet": "height",
+  "meters": "mt",
+  "feet": "ft",
 }
 
 export const dataType = {
@@ -52,7 +52,6 @@ export const dataType = {
   "crunch" : "noun",
   "active" : "noun",
   "time": "noun"
-
 }
 
 
