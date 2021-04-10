@@ -51,6 +51,12 @@ function removePunctuation(stringArr) {
 
 function stem(token) {
     token.toLowerCase();
+    for(let i = 0; i < token.length; i++) {
+        if (token.endsWith("ed") && token[indexOf("ed") - 1]) {
+            string.replace("ed", "")
+            //lookupTable[token]
+        }
+    }
 }
 
 function isVowel(letter){
@@ -75,9 +81,5 @@ function lemmatize(input) {
 
     console.log(lookupTable);
     console.log(lookupTable["men"]);
-    for(let i = 0; i < input.)
-    if(input.endsWith("ed") && input[indexOf("ed") - 1]){
-        string.replace("ed", "")
-        //lookupTable[input]
-    }
+
 }
