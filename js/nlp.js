@@ -10,7 +10,6 @@ export function getNlpProcessedInput(userInput){
     const tokenizedInput = tokenize(userInput);
     //use this tokenizedInput to remove punctuation etc
 
-
     //return the nlp analyzed input
     return "nlp processed input";
 }
@@ -35,4 +34,14 @@ function tokenize(userInputString){
         return token.length >=2 && stopWords.indexOf(token) == -1;
     })
     return words;
+}
+
+
+function removePunctuation(string) {
+    let r = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+    return string.replace(r, '');
+}
+
+function stem(string){
+
 }
