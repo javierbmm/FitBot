@@ -52,9 +52,15 @@ function removePunctuation(stringArr) {
 function stem(token) {
     token.toLowerCase();
     for(let i = 0; i < token.length; i++) {
-        if (token.endsWith("ed") && token[indexOf("ed") - 1]) {
+        if (token.endsWith("ed")) {
             string.replace("ed", "")
             //lookupTable[token]
+        }
+        else if (token.endsWith("ing")) {
+            string.replace("ing", "")
+        }
+        else if (token.endsWith("es")) {
+            string.replace("e", "")
         }
     }
 }
