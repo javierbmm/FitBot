@@ -9,6 +9,7 @@ lemmatize();         -> Javier  (Array<String>) -> Array<String>
 export function getNlpProcessedInput(userInput){
     const tokenizedInput = tokenize(userInput);
     //use this tokenizedInput to remove punctuation etc
+    const withoutPunctuation = removePunctuation(tokenizedInput);
 
     //return the nlp analyzed input
     return "nlp processed input";
