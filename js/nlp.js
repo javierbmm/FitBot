@@ -49,7 +49,19 @@ function removePunctuation(stringArr) {
     return stringArr;
 }
 
-function stem(string){
+function stem(token) {
+    token.toLowerCase();
+}
+
+function isVowel(letter){
+    let vowels;
+    vowels = new Set(["a", "e", "i", "o", "u", "y"]);
+
+    if(vowels.has(letter)){
+            return true;
+    }
+
+    return false;
 
 }
 
@@ -63,4 +75,9 @@ function lemmatize(input) {
 
     console.log(lookupTable);
     console.log(lookupTable["men"]);
+    for(let i = 0; i < input.)
+    if(input.endsWith("ed") && input[indexOf("ed") - 1]){
+        string.replace("ed", "")
+        //lookupTable[input]
+    }
 }
