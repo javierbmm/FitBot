@@ -1,13 +1,13 @@
 import {getBotsResponse} from "./js/bot.js";
-import {getNlpProcessedInput} from "./js/nlp";
+import {getNlpProcessedInput} from "./js/nlp.js";
 
-let importNlp = document.createElement('script');
+/*let importNlp = document.createElement('script');
 importNlp.src = './js/nlp.js';
 document.head.appendChild(importNlp);
 
 let importBot = document.createElement('script');
 importBot.src = './js/bot.js';
-document.head.appendChild(importBot);
+document.head.appendChild(importBot);*/
 
 //Adding a listener on 'enter' pressed
 document.addEventListener("DOMContentLoaded", () => {
