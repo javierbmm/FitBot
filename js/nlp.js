@@ -5,11 +5,14 @@ removePunctuation(); -> Nikki   (Array<String>) -> Array<String>
 stemmize();          -> Nikki   (Array<String>) -> Array<String>
 lemmatize();         -> Javier  (Array<String>) -> Array<String>
 */
+import * as lookup_data from '../data/lemmatize/lookup.js' ;
 
 export function getNlpProcessedInput(userInput){
     const tokenizedInput = tokenize(userInput);
     //use this tokenizedInput to remove punctuation etc
     const withoutPunctuation = removePunctuation(tokenizedInput);
+    const lemmatized = lemmatize(withoutPunctuation);
+
 
     //return the nlp analyzed input
     return "nlp processed input";
@@ -38,11 +41,26 @@ function tokenize(userInputString){
 }
 
 
-function removePunctuation(string) {
+function removePunctuation(stringArr) {
     let r = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
-    return string.replace(r, '');
+    stringArr.forEach((string)=>{
+        string = string.replace(r, '');
+    })
+    return stringArr;
 }
 
 function stem(string){
 
+}
+
+/**
+ *
+ * @param {String} input
+ * @return {String}
+ */
+function lemmatize(input) {
+    let lookupTable = lookup_data.data;
+
+    console.log(lookupTable);
+    console.log(lookupTable["men"]);
 }

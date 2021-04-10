@@ -1,4 +1,4 @@
-{
+export const data = {
   "girl": "female",
   "woman": "female",
   "men": "male",
@@ -12,7 +12,5 @@
   "less": "decrement",
   "decrease": "decrement",
   "decreasing": "decrement",
-  "minimize": "decrement",
-
-  
+  "minimize": "decrement"
 }
