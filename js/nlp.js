@@ -8,7 +8,6 @@ lemmatize();         -> Javier  (Array<String>) -> Array<String>
 import * as lookup_data from '../data/lemmatize/lookup.js' ;
 
 export function getNlpProcessedInput(userInput){
-    debugger
     const tokenizedInput = tokenize(userInput.toLowerCase());
     //use this tokenizedInput to remove punctuation etc
     const withoutPunctuation = removePunctuation(tokenizedInput);
