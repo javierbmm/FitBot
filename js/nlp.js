@@ -8,6 +8,7 @@ lemmatize();         -> Javier  (Array<String>) -> Array<String>
 import * as lookup_data from '../data/lemmatize/lookup.js' ;
 
 export function getNlpProcessedInput(userInput){
+    debugger
     const tokenizedInput = tokenize(userInput.toLowerCase());
     //use this tokenizedInput to remove punctuation etc
     const withoutPunctuation = removePunctuation(tokenizedInput);
@@ -36,7 +37,7 @@ const stopWords = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 
 function tokenize(userInputString){
     let words = userInputString.split(/\W+/).filter(token => {
         token.toLowerCase();
-        return token.length >=2 && stopWords.indexOf(token) == -1;
+        return token.length >=1 && stopWords.indexOf(token) === -1;
     })
     return words;
 }
