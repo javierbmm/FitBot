@@ -8,14 +8,15 @@ lemmatize();         -> Javier  (Array<String>) -> Array<String>
 import * as lookup_data from '../data/lemmatize/lookup.js' ;
 
 export function getNlpProcessedInput(userInput){
-    const tokenizedInput = tokenize(userInput);
+    const tokenizedInput = tokenize(userInput.toLowerCase());
     //use this tokenizedInput to remove punctuation etc
     const withoutPunctuation = removePunctuation(tokenizedInput);
     const lemmatized = lemmatize(withoutPunctuation);
 
 
+    const final = lemmatized.join(" ");
     //return the nlp analyzed input
-    return "nlp processed input";
+    return final;
 }
 
 const stopWords = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll",
@@ -48,19 +49,49 @@ function removePunctuation(stringArr) {
     })
     return stringArr;
 }
+// ing ed es fucking or fucked
+function stem(token) {
+    token.toLowerCase();
+    for(let i = 0; i < token.length; i++) {
+        if (token.endsWith("ed")) {
+            string.replace("ed", "")
+            //lookupTable[token]
+        }
+        else if (token.endsWith("ing")) {
+            string.replace("ing", "")
+        }
+        else if (token.endsWith("es")) {
+            string.replace("e", "")
+        }
+    }
+}
 
-function stem(string){
+function isVowel(letter){
+    let vowels;
+    vowels = new Set(["a", "e", "i", "o", "u", "y"]);
+
+    if(vowels.has(letter)) {
+            return true;
+    }
+
+    return false;
 
 }
 
 /**
  *
- * @param {String} input
- * @return {String}
+ * @param {Array<String>} input
+ * @return {Array<String>}
  */
 function lemmatize(input) {
     let lookupTable = lookup_data.data;
+    let result = [];
+    input.forEach((word) => {
+        if(lookupTable[word] !== undefined)
+            result.push(lookupTable[word]);
+        else
+            result.push(word);
+    })
 
-    console.log(lookupTable);
-    console.log(lookupTable["men"]);
+    return result;
 }

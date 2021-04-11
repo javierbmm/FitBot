@@ -1,13 +1,7 @@
-import {getBotsResponse} from "./js/bot.js";
+import {getBotsResponse, initBot} from "./js/bot.js";
 import {getNlpProcessedInput} from "./js/nlp.js";
 
-/*let importNlp = document.createElement('script');
-importNlp.src = './js/nlp.js';
-document.head.appendChild(importNlp);
-
-let importBot = document.createElement('script');
-importBot.src = './js/bot.js';
-document.head.appendChild(importBot);*/
+initBot();
 
 //Adding a listener on 'enter' pressed
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,28 +9,34 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#input-msg").addEventListener("keydown",e => {
         if(e.code === "Enter"){
             let input = inputField.value;
-            addQuestionAndResponse(input, botResponse(input));
+            inputField.value = '';
+            let botResponse = getBotsResponse(getNlpProcessedInput(input));
+            addQuestionAndResponse(input, botResponse.text);
         }
     })
 })
-
-function botResponse(userInput){
-    //Here we should call the function to get a response
-    return getBotsResponse(getNlpProcessedInput(userInput));
-}
 
 function addQuestionAndResponse(userInput, botResponse){
     const mainDiv = document.getElementById("chat")
 
     //Displaying user's response
-    let userDiv = document.createElement("div")
-    userDiv.className = "msg-user-div"
-    userDiv.innerHTML = `<span class="msg-user">${userInput}</span>`;
-    mainDiv.appendChild(userDiv);
+    mainDiv.appendChild(userMsg(userInput));
 
     //Displaying bot's answer
-    let botDiv = document.createElement("div")
-    botDiv.className = "msg-bot-div"
-    botDiv.innerHTML = `<span class="msg-bot">${botResponse}</span>`;
-    mainDiv.appendChild(botDiv);
+    setTimeout(()=>{
+        mainDiv.appendChild(botMsg(botResponse));
+    }, 700);
+
+}
+
+function userMsg(msg) {
+    let aux = document.createElement("div");
+    aux.innerHTML = `<span class="msg-user">${msg}</span>`;
+    return aux.firstChild;
+}
+
+function botMsg(msg) {
+    let aux = document.createElement("div");
+    aux.innerHTML = `<span class="msg-bot">${msg}</span>`;
+    return aux.firstChild;
 }
