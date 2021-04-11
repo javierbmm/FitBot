@@ -20,22 +20,26 @@ function addQuestionAndResponse(userInput, botResponse){
     const mainDiv = document.getElementById("chat")
 
     //Displaying user's response
-    mainDiv.appendChild(userMsg(userInput));
+    let userReply = userMsgElem(userInput)
+    mainDiv.appendChild(userReply);
+    userReply.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'end' });
 
     //Displaying bot's answer
+    let botReply = botMsgElem(botResponse);
     setTimeout(()=>{
-        mainDiv.appendChild(botMsg(botResponse));
+        mainDiv.appendChild(botReply);
+        botReply.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'end' });
     }, 700);
 
 }
 
-function userMsg(msg) {
+function userMsgElem(msg) {
     let aux = document.createElement("div");
     aux.innerHTML = `<span class="msg-user">${msg}</span>`;
     return aux.firstChild;
 }
 
-function botMsg(msg) {
+function botMsgElem(msg) {
     let aux = document.createElement("div");
     aux.innerHTML = `<span class="msg-bot">${msg}</span>`;
     return aux.firstChild;
