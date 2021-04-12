@@ -27,7 +27,7 @@ export function initBot(){
     what_is_your_fat_percentage.addInquiry("15", calculating);
     what_is_your_fat_percentage.addInquiry("15", exercises);
 
-    // Adding to interpreter
+    // adding to interpreter
     interpreter.init(hello_how_can_i_help_you);
 }
 
