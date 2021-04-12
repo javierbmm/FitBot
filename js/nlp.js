@@ -12,7 +12,7 @@ export function getNlpProcessedInput(userInput){
     //use this tokenizedInput to remove punctuation etc
     const withoutPunctuation = removePunctuation(tokenizedInput);
     const lemmatized = lemmatize(withoutPunctuation);
-
+    const stemmed = stem(lemmatized); // Not used.
 
     const final = lemmatized.join(" ");
     //return the nlp analyzed input
@@ -53,17 +53,20 @@ function removePunctuation(stringArr) {
 function stem(token) {
     token.toLowerCase();
     for(let i = 0; i < token.length; i++) {
-        if (token.endsWith("ed")) {
+        let string = token[i];
+        if (string.endsWith("ed")) {
             string.replace("ed", "")
-            //lookupTable[token]
+            //lookupTable[string]
         }
-        else if (token.endsWith("ing")) {
+        else if (string.endsWith("ing")) {
             string.replace("ing", "")
         }
-        else if (token.endsWith("es")) {
+        else if (string.endsWith("es")) {
             string.replace("e", "")
         }
     }
+
+    return token;
 }
 
 function isVowel(letter){
