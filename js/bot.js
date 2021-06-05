@@ -1,4 +1,3 @@
-import {data} from "../data/data.js";
 import {interpreter, answerFactory} from "./interpreter.js";
 
 export function initBot(){
