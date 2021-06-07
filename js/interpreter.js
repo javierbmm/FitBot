@@ -17,7 +17,7 @@ export class Interpreter {
         this._default = new Answer("I couldn't understand you 😢. Please try again.");
         this.curr = {};
         this._init = new Answer("");
-        this._init.addInquiry("Hello Trainer", firstAnswer);
+        this._init.addInquiry(["Hello Trainer", "Hi Trainer"], firstAnswer);
         this.curr = this._init;
     }
 

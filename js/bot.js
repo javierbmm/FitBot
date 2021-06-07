@@ -1,17 +1,10 @@
 import {data} from "../data/data.js";
 import {Interpreter} from "./interpreter.js";
 import {Answer} from "./answer.js";
+import {User, activeLeveLs} from "./user";
 
 let interpreter;
-const activeLeveLs = {
-    HIGH: 3,
-    MEDIUM: 2,
-    LOW: 1
-}
-var activeness = {};
-activeness.setHigh = () => { activeness = activeLeveLs.HIGH }
-activeness.setMedium = () => { activeness = activeLeveLs.MEDIUM }
-activeness.setLow = () => { activeness = activeLeveLs.LOW }
+const user = new User();
 
 export function initBot() {
     // Greetings
@@ -45,4 +38,13 @@ export function initBot() {
 export function getBotsResponse(nlpUserInput) {
     //Perform logic to find a correct response
     return interpreter.reply(nlpUserInput);
+}
+
+export function addNewAnswers(answers) {
+    answers.forEach(answer => {
+        let _answer = new Answer(answer.description);
+        // Check this:
+        interpreter.curr.hasSpecialInput = true;
+        interpreter.curr.addInquiry(answer.name, _answer);
+    })
 }
