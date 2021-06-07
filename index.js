@@ -1,5 +1,5 @@
 import {getBotsResponse, initBot} from "./js/bot.js";
-import {getNlpProcessedInput} from "./js/nlp.js";
+import {getNlpProcessedInput} from "./js/src/nlp.js";
 
 initBot();
 
@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(e.code === "Enter"){
             let input = inputField.value;
             inputField.value = '';
+            console.log(getNlpProcessedInput(input));
             let botResponse = getBotsResponse(getNlpProcessedInput(input));
             addQuestionAndResponse(input, botResponse.text);
         }

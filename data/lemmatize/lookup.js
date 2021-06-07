@@ -15,16 +15,16 @@ export const data = {
   "minimize": "decrement",
   "minimizing": "decrement",
   "main": "area",
-  "low": "area" ,
-  "side":"area",
-  "workout":"exercise",
-  "training":"exercise",
-  "train" : "exercise",
-  "yes": "yes" ,
-  "sure":"yes",
+  "low": "area",
+  "side": "area",
+  "workout": "exercise",
+  "training": "exercise",
+  "train": "exercise",
+  "yes": "yes",
+  "sure": "yes",
   "ok": "yes",
-  "no": "no" ,
-  "nope":"no",
+  "no": "no",
+  "nope": "no",
   "okay": "yes",
   "kilos": "kg",
   "kilograms": "kg",
@@ -34,6 +34,7 @@ export const data = {
   "days": "days",
   "meters": "mt",
   "feet": "ft",
+  "wanna": "want"
 }
 
 export const dataType = {
