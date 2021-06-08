@@ -23,9 +23,11 @@ export class Interpreter {
 
     reply(inquiry) {
         let response = this.curr._getResponse(inquiry);
-        if(response !== undefined){
-            this.curr = response;
-            return response;
+        if(response !== undefined) {
+            this.curr = response.answer;
+            if(response.opt !== undefined)
+                response.opt();
+            return this.curr;
         } else
             return this._default;
     }

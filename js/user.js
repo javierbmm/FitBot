@@ -1,12 +1,13 @@
 export const activeLeveLs = {
-    HIGH: 3,
-    MEDIUM: 2,
-    LOW: 1
+    HIGH: "advanced",
+    MEDIUM: "intermediate",
+    LOW: "beginner"
 }
 export class User {
     constructor() {
         this.activeness = -1;
         this.daysPerWeek = -1;
+        this.goal = "";
     }
 
     setHighActive(){
@@ -21,5 +22,9 @@ export class User {
 
     setDaysPerWeek(number) {
         this.daysPerWeek = number;
+    }
+
+    setGoal(goal){
+        this.goal = goal;
     }
 }

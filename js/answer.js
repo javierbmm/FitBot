@@ -18,24 +18,36 @@ export class Answer {
         this.text = text;
         this.inquiries = {};
         this.hasSpecialInput = specialInput;
+        this.hasOptional = false;
         this.optional = () => void 0;
+    }
+
+    static clone(answer) {
+        return new Answer(answer.text, answer.hasSpecialInput);
+    }
+
+    clone(answer) {
+        return new Answer(answer.text, answer.hasSpecialInput);
     }
 
     addInquiry(inquiry, answer, opt = undefined) {
         let self = this;
         if(Array.isArray(inquiry))
             inquiry.forEach(item => {
-                self.inquiries[item.toLowerCase()] = answer;
+                self.inquiries[item.toLowerCase()] = {answer: answer, opt: opt};
             })
         else
-            this.inquiries[inquiry.toLowerCase()] = answer;
+            this.inquiries[inquiry.toLowerCase()] = {answer: answer, opt: opt};
 
-        if(opt !== undefined && typeof opt === "function")
-            opt();
+        // if(opt !== undefined && typeof opt === "function") {
+        //     opt();
+        // }
     }
 
     addOptional(funct) {
         this.optional = funct;
+        this.hasOptional = true;
+        return this;
     }
 
     _getResponse(inquiry) {

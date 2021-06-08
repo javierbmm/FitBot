@@ -3,7 +3,6 @@ import  *  as lookup_data from "../../data/lemmatize/lookup"
 const nlp = require( 'wink-nlp-utils' );
 
 export function getNlpProcessedInput(userInput){
-    debugger
     const noPunctuations = nlp.string.removePunctuations(userInput);
     const noExtraSpace = nlp.string.removeExtraSpaces(noPunctuations);
     const lowerCase = nlp.string.lowerCase(noExtraSpace);
